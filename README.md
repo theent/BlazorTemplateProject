@@ -19,5 +19,8 @@ docker stop "number"
 
 #### Tailwind instructions
 
+Run Tailwind (must be on for the css to be generated):
+npx tailwindcss -i ./Styles/app.css -o ./wwwroot/app.css --watch 
+
 Create minified css:
 npx tailwindcss -i ./Styles/app.css -o ./wwwroot/app.css --minify
