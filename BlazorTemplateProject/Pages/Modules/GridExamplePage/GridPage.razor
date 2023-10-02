@@ -1,0 +1,65 @@
+@using System.Net.Http.Json
+
+<div class="mx-auto mt-10 w-[80%]">
+    <MudDataGrid Items="@GridModels"QuickFilter="@_quickFilter" Hideable="true">
+        <ToolBarContent>
+            <MudText Typo="Typo.h6">Periodic Elements</MudText>
+            <MudSpacer />
+            <MudTextField @bind-Value="_searchString" Placeholder="Search" Adornment="Adornment.Start" Immediate="true"
+                AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+        </ToolBarContent>
+        <Columns>
+            <PropertyColumn Property="x => x.Number" Title="Nr" />
+            <PropertyColumn Property="x => x.Sign" />
+            <PropertyColumn Property="x => x.Name" />
+            <PropertyColumn Property="x => x.Position" />
+            <PropertyColumn Property="x => x.Molar" Title="Molar mass" />
+        </Columns>
+    </MudDataGrid>
+</div>
+
+
+
+
+
+@code {
+    private IEnumerable<GridModel> GridModels = new List<GridModel>();
+    private string _searchString = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(1);
+
+        GridModels = new List<GridModel>() {
+            new GridModel(1, "H", "Hydrogen", "1.00794", 1.00794),
+            new GridModel(2, "He", "Helium", "4.002602", 4.002602),
+            new GridModel(3, "Li", "Lithium", "6.941", 6.941),
+            new GridModel(4, "Be", "Beryllium", "9.012182", 9.012182),
+            new GridModel(5, "B", "Boron", "10.811", 10.811)
+        };
+
+    }
+
+    private Func<GridModel, bool> _quickFilter => x =>
+    {
+        if (string.IsNullOrWhiteSpace(_searchString))
+            return true;
+
+        if (x.Sign.Contains(_searchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        if (x.Name.Contains(_searchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        if ($"{x.Number} {x.Position} {x.Molar}".Contains(_searchString))
+            return true;
+
+        return false;
+    };
+
+
+
+    record GridModel(int Number, string Sign, string Name, string Position, double Molar);
+
+
+}

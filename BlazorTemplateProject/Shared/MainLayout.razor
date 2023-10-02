@@ -7,11 +7,13 @@
 
 
 <MudLayout>
-    <MudAppBar Elevation="1">
+    @* <MudAppBar Elevation="1">
         <MudText Typo="Typo.h5" Class="ml-3">Your Application</MudText>
+        <PageExamplesNavBar />
         <MudSpacer />
         <MudIconButton Icon="@Icons.Material.Filled.MoreVert" Color="Color.Inherit" Edge="Edge.End" />
-    </MudAppBar>
+    </MudAppBar> *@
+    <HorizontalNavBar></HorizontalNavBar>
     <MudMainContent>
         @Body
     </MudMainContent>

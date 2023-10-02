@@ -1,0 +1,15 @@
+
+
+    <div class="">
+        <MudNavMenu>
+            <MudNavGroup Title="Settings" @bind-Expanded=_isExpanded>
+                <MudNavLink Href="/users">Users</MudNavLink>
+                <MudNavLink Href="/security">Security</MudNavLink>
+            </MudNavGroup>
+        </MudNavMenu>
+    </div>
+
+@code{
+    bool _isExpanded = false;
+}
+
