@@ -17,6 +17,9 @@ docker run --name projectname -p 8080:80 -d projectname:1.1.0
 Stop image:
 docker stop "number"
 
+Remove image:
+docker remove "number"
+
 #### Tailwind instructions
 
 Run Tailwind (must be on for the css to be generated):
