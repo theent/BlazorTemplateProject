@@ -1,0 +1,50 @@
+﻿@page "/"
+
+<PageTitle>Index</PageTitle>
+
+<div class="mx-auto mt-10 w-[80%]">
+
+    <div class="">
+        <MudCarousel Class="mud-width-full" Style="height:20rem" ShowArrows="@arrows" ShowBullets="@bullets" EnableSwipeGesture="@enableSwipeGesture" AutoCycle="@autocycle" TData="object">
+            <MudCarouselItem Transition="transition" Color="@Color.Primary">
+                <div class="d-flex" style="height:100%">
+                    <MudIcon Class="mx-auto my-auto" Icon="@Icons.Custom.Brands.MudBlazor" Size="@Size.Large" />
+                </div>
+            </MudCarouselItem>
+            <MudCarouselItem Transition="transition" Color="@Color.Secondary">
+                <div class="d-flex" style="height:100%">
+                    <MudIcon Class="mx-auto my-auto" Icon="@Icons.Custom.Brands.MudBlazor" Size="@Size.Large" />
+                </div>
+            </MudCarouselItem>
+        </MudCarousel>
+    </div>
+
+    <div class="mt-20">
+        <MudExpansionPanels MultiExpansion="true">
+            <MudExpansionPanel Text="Panel One">
+                Panel One Content
+            </MudExpansionPanel>
+            <MudExpansionPanel Text="Panel Two">
+                Panel Two Content
+            </MudExpansionPanel>
+            <MudExpansionPanel Text="Panel Three">
+                Panel Three Content
+            </MudExpansionPanel>
+            <MudExpansionPanel Text="Panel Four">
+                Panel Four Content
+            </MudExpansionPanel>
+        </MudExpansionPanels>
+    </div>
+
+
+
+</div>
+
+@code{ 
+    private bool arrows = true;
+    private bool bullets = true;
+    private bool enableSwipeGesture = true;
+    private bool autocycle = true;
+    private Transition transition = Transition.Slide;
+}
+
